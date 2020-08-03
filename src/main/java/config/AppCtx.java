@@ -1,5 +1,5 @@
 package config;
-
+//test
 import com.ydh.SpringProject.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
