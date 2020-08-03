@@ -2,6 +2,8 @@ package main;
 
 import assembler.Assembler;
 import com.ydh.SpringProject.*;
+import config.AppConf1;
+import config.AppConf2;
 import config.AppCtx;
 import javafx.application.Application;
 import org.springframework.context.ApplicationContext;
@@ -16,7 +18,7 @@ public class MainForSpring {
     private static ApplicationContext ctx=null;
 
     public static void main(String[] args) throws IOException{
-        ctx=new AnnotationConfigApplicationContext(AppCtx.class);
+        ctx=new AnnotationConfigApplicationContext(AppConf1.class);
         BufferedReader reader= new BufferedReader(new InputStreamReader(System.in));
 
         while(true){
@@ -39,6 +41,9 @@ public class MainForSpring {
                 continue;
             }else if(command.startsWith("info ")){
                 processInfoCommand(command.split(" "));
+                continue;
+            }else if(command.equals("version")){
+                processVersionCommand();
                 continue;
             }
             printHelp();
@@ -110,6 +115,11 @@ public class MainForSpring {
 
         MemberInfoPrinter infoPrinter=ctx.getBean("infoPrinter",MemberInfoPrinter.class);
         infoPrinter.printMemberInfo(args[1]);
+    }
+
+    private static void processVersionCommand(){
+        VersionPrinter versionPrinter=ctx.getBean("versionPrinter",VersionPrinter.class);
+        versionPrinter.print();
     }
 }
 
