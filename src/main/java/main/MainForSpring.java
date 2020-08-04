@@ -18,7 +18,7 @@ public class MainForSpring {
     private static ApplicationContext ctx=null;
 
     public static void main(String[] args) throws IOException{
-        ctx=new AnnotationConfigApplicationContext(AppConf1.class);
+        ctx=new AnnotationConfigApplicationContext(AppCtx.class);
         BufferedReader reader= new BufferedReader(new InputStreamReader(System.in));
 
         while(true){
