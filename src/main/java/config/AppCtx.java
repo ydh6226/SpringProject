@@ -3,27 +3,13 @@ package config;
 import com.ydh.SpringProject.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan(basePackages={"com.ydh.SpringProject"})
 public class AppCtx {
 
-    @Bean
-    public MemberDao memberDao(){
-        return new MemberDao();
-    }
-
-    @Bean
-    public MemberRegisterService memberRegSvc(){
-        return new MemberRegisterService();
-    }
-
-    @Bean
-    public ChangePasswordService changePwdSvc(){
-        ChangePasswordService pwdSvc=new ChangePasswordService();
-        //pwdSvc.setMemberDao(memberDao());
-        return pwdSvc;
-    }
 
     @Bean
     @Qualifier("printer")
@@ -32,19 +18,9 @@ public class AppCtx {
     }
 
     @Bean
-    public MemberPrinter memberPrinter2(){
+    @Qualifier("summaryPrinter")
+    public MemberSummaryPrinter memberPrinter2(){
         return new MemberSummaryPrinter();
-    }
-
-    @Bean
-    public MemberListPrinter listPrinter(){
-        return new MemberListPrinter();
-    }
-
-    @Bean
-    public MemberInfoPrinter infoPrinter(){
-        MemberInfoPrinter infoPrinter=new MemberInfoPrinter();
-        return infoPrinter;
     }
 
     @Bean

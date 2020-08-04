@@ -56,7 +56,7 @@ public class MainForSpring {
             return;
         }
 
-        MemberRegisterService regSvc=ctx.getBean("memberRegSvc",MemberRegisterService.class);
+        MemberRegisterService regSvc=ctx.getBean(MemberRegisterService.class);
         RegisterRequest req=new RegisterRequest();
         req.setEmail(args[1]);
         req.setName(args[2]);
@@ -82,7 +82,7 @@ public class MainForSpring {
             return;
         }
 
-        ChangePasswordService changePwdSvc=ctx.getBean("changePwdSvc",ChangePasswordService.class);
+        ChangePasswordService changePwdSvc=ctx.getBean(ChangePasswordService.class);
         try{
             changePwdSvc.changePassword(args[1],args[2],args[3]);
             System.out.println("암호를 변경했습니다\n");
