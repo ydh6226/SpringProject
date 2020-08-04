@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages={"com.ydh.SpringProject"})
 public class AppCtx {
 
-
     @Bean
     @Qualifier("printer")
     public MemberPrinter memberPrinter1(){
