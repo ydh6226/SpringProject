@@ -12,13 +12,13 @@ public class AppConf2 {
 
     @Bean
     public MemberRegisterService memberRegSvc(){
-        return new MemberRegisterService(memberDao);
+        return new MemberRegisterService();
     }
 
     @Bean
     public ChangePasswordService changePwdSvc(){
         ChangePasswordService pwdSvc=new ChangePasswordService();
-        pwdSvc.setMemberDao(memberDao);
+        //pwdSvc.setMemberDao(memberDao);
         return pwdSvc;
     }
 
@@ -29,7 +29,7 @@ public class AppConf2 {
 
     @Bean
     public MemberListPrinter listPrinter(){
-        return new MemberListPrinter(memberDao,memberPrinter);
+        return new MemberListPrinter();
     }
 
     @Bean
